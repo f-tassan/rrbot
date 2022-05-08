@@ -1,21 +1,13 @@
-<?xml version="1.0"?>
 <launch>
-
     <arg name="model" default="$(find rrbot_description)/urdf/rrbot.xacro"/>
     <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>  
 
     <arg name="x" default="4"/>
     <arg name="y" default="4"/>
 
-    <!--Launch Gazebo Simulator-->
     <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" 
     args="-urdf -param robot_description -model rrbot -x $(arg x) -y $(arg y)" output="screen"/>
 
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-    
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
-    <!--node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/-->
-    
     <node name="rviz" pkg="rviz" type="rviz" required="true" 
     args="-d $(find rrbot_description)/rviz/laser.rviz"/>
 

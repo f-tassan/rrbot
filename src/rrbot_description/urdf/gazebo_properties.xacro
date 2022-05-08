@@ -8,7 +8,7 @@
 
   <!-- Link2 -->
   <gazebo reference="link2">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Orange</material>
   </gazebo>
 
   <!-- Link3 -->
